@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = "https://store-iota-dun.vercel.app/";
+const URL = "https://store-x8vy.onrender.com/";
 
 const api = axios.create({
   baseURL: URL,

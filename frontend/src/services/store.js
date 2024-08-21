@@ -1,12 +1,12 @@
 // Need to use the React-specific entry point to import createApi
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const URL = "https://store-iota-dun.vercel.app/";
+const URL = "https://store-x8vy.onrender.com/";
 
 export const storeApi = createApi({
   reducerPath: "storeApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://store-iota-dun.vercel.app/",
+    baseUrl: "https://store-x8vy.onrender.com/",
     credentials: "include", // Include cookies with cross-origin requests
   }),
   endpoints: (builder) => ({

@@ -14,7 +14,7 @@ function App() {
 
         <a
           target="_blank"
-          href="https://store-iota-dun.vercel.app/auth/google"
+          href="https://store-x8vy.onrender.com/auth/google"
           className="w-full flex items-center justify-center bg-blue-600 text-white py-3 rounded-lg shadow hover:bg-blue-700 transition duration-200"
         >
           <svg
