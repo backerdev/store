@@ -15,13 +15,12 @@ export default function ProtectedRoute({ children }) {
   async function getSession() {
     try {
       const { data } = await getApiSession();
-      console.log(data);
+
       dispatch(setUser(data.user));
       dispatch(setRights(data.rights));
       setUserData(data.user);
       setUserRights(data.rights);
     } catch (error) {
-      console.log(error);
       setUserData(null);
       setUserRights([]);
     } finally {
