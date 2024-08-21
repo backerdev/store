@@ -20,6 +20,11 @@ app.use(helmet());
 app.use(cors({ origin: process.env.CORS_ORIGIN, credentials: true }));
 app.use(express.json());
 
+// Rate limiting
+// const limiter = rateLimit({
+//   windowMs: 15 * 60 * 1000,
+//   max: 100,
+// });
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -36,11 +41,6 @@ app.use(passport.authenticate("session"));
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Rate limiting
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 100,
-});
 app.use(limiter);
 
 // // MongoDB connection
