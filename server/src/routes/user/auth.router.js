@@ -37,6 +37,7 @@ router.get(
   }
 );
 router.get("/session", (req, res) => {
+  console.log(req.isAuthenticated());
   if (req.isAuthenticated()) {
     return res
       .status(200)
