@@ -5,6 +5,7 @@ const path = require("path");
 const passport = require("./src/configs/passport");
 const mongoose = require("mongoose");
 const session = require("express-session");
+const MongoStore = require('connect-mongo');
 const rateLimit = require("express-rate-limit");
 
 const StoreRouter = require("./src/routes/store/store.router");
@@ -24,7 +25,11 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: false, sameSite: "strict" },
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI, // Replace with your MongoDB URI
+      ttl: 14 * 24 * 60 * 60 // Set session expiry (14 days in this example)
+    }),
+    cookie: { secure: false, maxAge: 14 * 24 * 60 * 60 * 1000 // 14 days in milliseconds, sameSite: "strict" },
   })
 );
 app.use(passport.authenticate("session"));
